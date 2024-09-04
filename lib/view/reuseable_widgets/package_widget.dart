@@ -3,10 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../utils/static_method/styles.dart';
 import 'custom_button.dart';
 
-class Packages{
-
-  Widget packageLayout(ctx){
-    return  Container(
+class Packages {
+  /// Current Booking Layout
+  Widget currentPackageLayout(ctx, v) {
+    return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
@@ -24,10 +24,10 @@ class Packages{
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "One Day Package",
+                  // "One Day ",
+                  "${v.title}",
                   style: Sty().mediumText.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: Clr().primaryColor),
+                      fontWeight: FontWeight.w600, color: Clr().primaryColor),
                 ),
                 SizedBox(
                   width: 100,
@@ -41,9 +41,9 @@ class Packages{
                     child: Text(
                       "Start",
                       style: Sty().mediumText.copyWith(
-                        color: Colors.white,
-                        // fontWeight:
-                      ),
+                            color: Colors.white,
+                            // fontWeight:
+                          ),
                     ),
                   ),
                 ),
@@ -62,8 +62,8 @@ class Packages{
                             fontWeight: FontWeight.w400,
                             color: Clr().textcolor),
                       ),
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
                             "assets/calendar.svg",
@@ -73,15 +73,15 @@ class Packages{
                             width: 8,
                           ),
                           Text(
-                            "12.08.2020",
+                            "${v.fromDate}",
                             style: Sty().mediumText.copyWith(
                                 fontWeight: FontWeight.w600,
                                 color: Clr().textcolor),
                           ),
                         ],
                       ),
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
                             "assets/clock.svg",
@@ -91,7 +91,7 @@ class Packages{
                             width: 8,
                           ),
                           Text(
-                            "11 pm",
+                            "${v.fromTime}",
                             style: Sty().mediumText.copyWith(
                                 fontWeight: FontWeight.w600,
                                 color: Clr().textcolor),
@@ -111,8 +111,8 @@ class Packages{
                             fontWeight: FontWeight.w400,
                             color: Clr().textcolor),
                       ),
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
                             "assets/calendar.svg",
@@ -122,15 +122,15 @@ class Packages{
                             width: 8,
                           ),
                           Text(
-                            "13.08.2020",
+                            "${v.toDate}",
                             style: Sty().mediumText.copyWith(
                                 fontWeight: FontWeight.w600,
                                 color: Clr().textcolor),
                           ),
                         ],
                       ),
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
                             "assets/clock.svg",
@@ -140,7 +140,7 @@ class Packages{
                             width: 8,
                           ),
                           Text(
-                            "07 pm",
+                            "${v.toTime}",
                             style: Sty().mediumText.copyWith(
                                 fontWeight: FontWeight.w600,
                                 color: Clr().textcolor),
@@ -168,8 +168,9 @@ class Packages{
                         surfaceTintColor: Clr().primaryColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(100))),
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Icon(
                           Icons.star_border,
@@ -202,8 +203,9 @@ class Packages{
                         surfaceTintColor: Clr().primaryColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(100))),
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Icon(
                           Icons.location_on_outlined,
@@ -236,11 +238,12 @@ class Packages{
                         surfaceTintColor: Clr().primaryColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(100))),
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset("assets/radio.svg"),
-                        const SizedBox(width: 2),
+                        const SizedBox(width: 4),
                         Text(
                           "Survillence",
                           style: Sty().smallText.copyWith(
@@ -261,4 +264,87 @@ class Packages{
     );
   }
 
+  Widget allPackageLayout(ctx, index, v) {
+    return Container(
+      decoration: BoxDecoration(
+        color: index % 2 == 0
+            ? Clr().primaryColor.withOpacity(0.5)
+            : const Color(0xff80ABDB),
+        border: Border.all(
+          color: Clr().borderColor,
+        ),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SvgPicture.asset(
+                  "assets/package_calendar.svg",
+                  width: 30,
+                  color: index % 2 == 0 ? Clr().primaryColor : Colors.white,
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 28,
+                  child: CustomButton(
+                    color: index % 2 == 0
+                        ? Clr().primaryColor
+                        : Clr().secondaryLightColor,
+                    splashColor: Colors.black12,
+                    type: ButtonType.primary,
+                    onTap: () {},
+                    radius: 100,
+                    child: Text(
+                      "Book Now",
+                      style: Sty().mediumText.copyWith(
+                            color: Colors.white,
+                            // fontWeight:
+                          ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  // "One Day Package",
+                  "${v.title ?? ''}",
+                  style: Sty().mediumText.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Clr().secondaryColor),
+                ),
+                Text(
+                  "₹ ${v.price ?? '0'}",
+                  style: Sty().mediumText.copyWith(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 18,
+                      color: Clr().secondaryColor),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              v.desc ?? "",
+              maxLines: 2,
+              style: Sty().smallText.copyWith(
+                  height: 1.2,
+                  overflow: TextOverflow.ellipsis,
+                  color: const Color(0xff494949)),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }

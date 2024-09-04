@@ -54,7 +54,8 @@ class SplashScreen extends StatelessWidget {
                 "Nanny Vanny",
                 style: Sty()
                     .largeText
-                    .copyWith(fontSize: 32, fontWeight: FontWeight.w600),
+                    .copyWith(fontSize: 32, fontWeight: FontWeight.w600,
+                color: Clr().secondaryColor),
               ).animate().fadeIn(
                 delay: const Duration(milliseconds: 1100),
                 duration: const Duration(milliseconds: 700),

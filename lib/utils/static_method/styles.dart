@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Sty {
   TextStyle microText = TextStyle(
@@ -191,5 +192,86 @@ class STM {
       ),
       (Route<dynamic> route) => false,
     );
+  }
+
+  ///Bottom Navigation
+
+  List<BottomNavigationBarItem> getBottomList(index, b) {
+    return [
+      // BottomNavigationBarItem(
+      //   icon: SvgPicture.asset(
+      //     "assets/homebn.svg",
+      //     color: b
+      //         ? Clr().grey
+      //         : index == 0
+      //             ? Clr().primaryColor
+      //             : Clr().grey,
+      //   ),
+      //   label: 'Home',
+      // ),
+      BottomNavigationBarItem(
+        icon: index == 0
+            ? SvgPicture.asset(
+                // "assets/d_home.svg",
+                "assets/bn_home.svg",
+                // color: index == 0 ? Clr().primaryColor : Clr().white,
+              )
+            : SvgPicture.asset(
+                "assets/bn_home.svg",
+              ),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: index == 1
+            ? SvgPicture.asset(
+                "assets/package.svg",
+              )
+            : SvgPicture.asset(
+                "assets/package.svg",
+              ),
+        label: 'Packages',
+      ),
+      BottomNavigationBarItem(
+        icon: index == 2
+            ? SvgPicture.asset(
+                "assets/bn_bookings.svg",
+              )
+            : SvgPicture.asset(
+                "assets/bn_bookings.svg",
+              ),
+        label: 'Bookings',
+      ),
+      BottomNavigationBarItem(
+        icon: index == 3
+            ? SvgPicture.asset(
+                "assets/bn_profile.svg",
+              )
+            : SvgPicture.asset(
+                "assets/bn_profile.svg",
+              ),
+        label: 'Profile',
+      ),
+      // BottomNavigationBarItem(
+      //   icon: SvgPicture.asset(
+      //     "assets/cartbn.svg",
+      //     color: index == 1 ? Clr().primaryColor : Clr().grey,
+      //   ),
+      //   label: 'Daily letters',
+      // ),
+      // BottomNavigationBarItem(
+      //   icon: SvgPicture.asset(
+      //     "assets/notificationbn.svg",
+      //     color: index == 2 ? Clr().primaryColor : Clr().grey,
+      //   ),
+      //   label: 'Profile',
+      // ),
+      // BottomNavigationBarItem(
+      //   icon: SvgPicture.asset(
+      //     "assets/profilebn.svg",
+      //     color: index == 3 ? Clr().primaryColor : Clr().grey,
+      //   ),
+      //   label: 'Profile',
+      // ),
+    ];
   }
 }

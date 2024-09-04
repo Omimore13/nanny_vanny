@@ -7,8 +7,13 @@ class UserRepo {
 
   UserRepo({required this.apiClient});
 
-  /// All Mutual Funds Repo
+  /// Current Bookings Repo
   Future<Response> currentBookingsRepo() async => await apiClient.getData(
         AppConstants.currentBookingUri,
+      );
+
+  /// All Packages Repo
+  Future<Response> allPackagesRepo() async => await apiClient.getData(
+        AppConstants.allPackagesUri,
       );
 }
