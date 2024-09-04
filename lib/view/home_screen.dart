@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    void _handleMenuButtonPressed() {
+    void handleMenuButtonPressed() {
       _advancedDrawerController.showDrawer();
     }
 
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
       childDecoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
-      drawer: Nav().Drawer(context),
+      drawer: Nav().drawer(context),
       child: Scaffold(
         bottomNavigationBar: bottomBarLayout(context, 0),
         backgroundColor: Colors.white,
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: IconButton(
                 splashColor: Colors.white,
-                onPressed: _handleMenuButtonPressed,
+                onPressed: handleMenuButtonPressed,
                 icon: ValueListenableBuilder<AdvancedDrawerValue>(
                   valueListenable: _advancedDrawerController,
                   builder:

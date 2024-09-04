@@ -26,6 +26,6 @@ Widget bottomBarLayout(ctx, index,{b=false}) {
           break;
       }
     },
-    items: STM().getBottomList(index,b),
+    items: STM().getBottomList(index),
   );
 }

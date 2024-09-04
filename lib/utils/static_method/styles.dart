@@ -98,7 +98,7 @@ class STM {
       dismissOnTouchOutside: false,
       dismissOnBackKeyPress: false,
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             // SizedBox(child: Lottie.asset('assets/no_internet_alert.json')),
@@ -109,21 +109,21 @@ class STM {
                     fontSize: 18.0,
                   ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Text(
               'No Internet connection found.',
               style: Sty().smallText,
             ),
-            SizedBox(
+           const  SizedBox(
               height: 32,
             ),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 12,
                   ),
                   shape: RoundedRectangleBorder(
@@ -196,19 +196,8 @@ class STM {
 
   ///Bottom Navigation
 
-  List<BottomNavigationBarItem> getBottomList(index, b) {
+  List<BottomNavigationBarItem> getBottomList(index) {
     return [
-      // BottomNavigationBarItem(
-      //   icon: SvgPicture.asset(
-      //     "assets/homebn.svg",
-      //     color: b
-      //         ? Clr().grey
-      //         : index == 0
-      //             ? Clr().primaryColor
-      //             : Clr().grey,
-      //   ),
-      //   label: 'Home',
-      // ),
       BottomNavigationBarItem(
         icon: index == 0
             ? SvgPicture.asset(
@@ -251,27 +240,6 @@ class STM {
               ),
         label: 'Profile',
       ),
-      // BottomNavigationBarItem(
-      //   icon: SvgPicture.asset(
-      //     "assets/cartbn.svg",
-      //     color: index == 1 ? Clr().primaryColor : Clr().grey,
-      //   ),
-      //   label: 'Daily letters',
-      // ),
-      // BottomNavigationBarItem(
-      //   icon: SvgPicture.asset(
-      //     "assets/notificationbn.svg",
-      //     color: index == 2 ? Clr().primaryColor : Clr().grey,
-      //   ),
-      //   label: 'Profile',
-      // ),
-      // BottomNavigationBarItem(
-      //   icon: SvgPicture.asset(
-      //     "assets/profilebn.svg",
-      //     color: index == 3 ? Clr().primaryColor : Clr().grey,
-      //   ),
-      //   label: 'Profile',
-      // ),
     ];
   }
 }

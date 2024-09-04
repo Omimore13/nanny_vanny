@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:nanny_vanny/model/packages_model.dart';
-import '../model/current_booking_model.dart';
 import '../model/response_model.dart';
 import '../repositories/user_repo.dart';
 import '../services/constants.dart';

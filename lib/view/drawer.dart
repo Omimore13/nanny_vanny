@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/static_method/styles.dart';
 
 class Nav {
-  Widget Drawer(ctx) {
+  Widget drawer(ctx) {
     return SafeArea(
       child: ListTileTheme(
         textColor: Colors.white,
